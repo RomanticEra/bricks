@@ -18,7 +18,7 @@
 
 ---
 
-{{description}}
+{{project_name}} is RootDir about Dart & Flutter projects with multiple packages manager melos.
 
 <!-- For learning how to use [{{project_name}}], see its documentation: https://{{project_name}}.dev -->
 

@@ -1,4 +1,4 @@
-name: my_project
+name: masonx
 
 packages:
   - packages/**
@@ -6,8 +6,8 @@ packages:
 
 scripts:
   # we voluntarily do not use melos inside goldens
-  postbootstrap: |
-    postbootstrap: tuneup --version || pub global activate tuneup
+  # postbootstrap: |
+  #   postbootstrap: tuneup --version || pub global activate tuneup
 
   analyze:
     run: |
@@ -32,6 +32,18 @@ scripts:
   test:
     run: melos run test:dart --no-select && melos run test:flutter --no-select
     description: Run all Dart & Flutter tests in this project.
+  tag:git:
+    run: melos exec "git tag -l"
+    description: show all tag
+  tag:pubspec:
+    run: melos list -l 
+    description: show all tag
+  tag:gitstatus:
+    run: melos exec "git status -s"
+    description: show all tag
+  tag:
+    run: melos run tag:git && melos run tag:pubspec && melos run tag:gitstatus
+    description: show all tag
 
   test:dart:
     run: melos exec  -c 1 --fail-fast -- "\$MELOS_ROOT_PATH/scripts/coverage.sh"
@@ -46,3 +58,12 @@ scripts:
     select-package:
       flutter: true
       dir-exists: test
+  pull:
+    run:
+      melos exec "git pull --rebase"
+  push:
+    run:
+      melos exec "git push --follow-tags"
+ide:
+  intellij:
+    false
