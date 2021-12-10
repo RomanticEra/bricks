@@ -1,0 +1,6 @@
+name: dart_package_factory
+description: A new Dart Package
+vars:
+  - username
+  - project_name
+  - description
