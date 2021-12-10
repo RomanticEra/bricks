@@ -4,3 +4,4 @@ vars:
   - username
   - project_name
   - description
+  - is_cli
